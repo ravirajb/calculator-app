@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versatile Web Calculator - Simple, Scientific, Tax & Unit Converter</title>
+    <meta name="description" content="A responsive web application featuring a simple calculator, scientific calculator, tax calculator (with simplified rules for select countries), and a unit converter for length, weight, and temperature.">
+    <meta name="keywords" content="calculator, simple calculator, scientific calculator, tax calculator, unit converter, web tools, online calculator, responsive calculator">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Versatile Web Calculator</h1>
+    </header>
+    <nav>
+        <button id="simpleBtn">Simple Calculator</button>
+        <button id="scientificBtn">Scientific Calculator</button>
+        <button id="taxBtn">Tax Calculator</button>
+        <button id="unitBtn">Unit Converter</button>
+    </nav>
+    <main>
+        <div id="simpleCalculator">
+            <h2>Simple Calculator</h2>
+            <input type="text" id="simpleDisplay" readonly>
+            <table>
+                <tr>
+                    <td><button class="calc-btn number">7</button></td>
+                    <td><button class="calc-btn number">8</button></td>
+                    <td><button class="calc-btn number">9</button></td>
+                    <td><button class="calc-btn operator">/</button></td>
+                </tr>
+                <tr>
+                    <td><button class="calc-btn number">4</button></td>
+                    <td><button class="calc-btn number">5</button></td>
+                    <td><button class="calc-btn number">6</button></td>
+                    <td><button class="calc-btn operator">*</button></td>
+                </tr>
+                <tr>
+                    <td><button class="calc-btn number">1</button></td>
+                    <td><button class="calc-btn number">2</button></td>
+                    <td><button class="calc-btn number">3</button></td>
+                    <td><button class="calc-btn operator">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="calc-btn number">0</button></td>
+                    <td><button class="calc-btn number">.</button></td>
+                    <td><button id="simpleClear" class="calc-btn">C</button></td>
+                    <td><button class="calc-btn operator">+</button></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><button id="simpleEquals" class="calc-btn equals">=</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="scientificCalculator" style="display: none;">
+            <h2>Scientific Calculator</h2>
+            <input type="text" id="scientificDisplay" readonly>
+            <table>
+                <tr>
+                    <td><button class="sci-calc-btn func" data-func="Math.sin(">sin</button></td>
+                    <td><button class="sci-calc-btn func" data-func="Math.cos(">cos</button></td>
+                    <td><button class="sci-calc-btn func" data-func="Math.tan(">tan</button></td>
+                    <td><button class="sci-calc-btn func" data-func="Math.log10(">log</button></td>
+                    <td><button class="sci-calc-btn func" data-func="Math.log(">ln</button></td>
+                </tr>
+                <tr>
+                    <td><button class="sci-calc-btn" data-value="(">(</button></td>
+                    <td><button class="sci-calc-btn" data-value=")">)</button></td>
+                    <td><button class="sci-calc-btn func" data-func="Math.sqrt(">√</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="**">x<sup>y</sup></button></td>
+                    <td><button class="sci-calc-btn factorial" data-value="!">n!</button></td>
+                </tr>
+                <tr>
+                    <td><button class="sci-calc-btn number">7</button></td>
+                    <td><button class="sci-calc-btn number">8</button></td>
+                    <td><button class="sci-calc-btn number">9</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="/">/</button></td>
+                    <td><button id="scientificClear" class="sci-calc-btn">C</button></td>
+                </tr>
+                <tr>
+                    <td><button class="sci-calc-btn number">4</button></td>
+                    <td><button class="sci-calc-btn number">5</button></td>
+                    <td><button class="sci-calc-btn number">6</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="*">*</button></td>
+                    <td rowspan="2"><button id="scientificEquals" class="sci-calc-btn equals" style="height:100%;">=</button></td>
+                </tr>
+                <tr>
+                    <td><button class="sci-calc-btn number">1</button></td>
+                    <td><button class="sci-calc-btn number">2</button></td>
+                    <td><button class="sci-calc-btn number">3</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="-">-</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="sci-calc-btn number" style="width:100%">0</button></td>
+                    <td><button class="sci-calc-btn number">.</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="+">+</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="taxCalculator" style="display: none;">
+            <h2>Tax Calculator</h2>
+            <div>
+                <label for="countrySelect">Country:</label>
+                <select id="countrySelect">
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                    <option value="Germany">Germany</option>
+                </select>
+            </div>
+            <div>
+                <label for="incomeInput">Annual Income:</label>
+                <input type="number" id="incomeInput" placeholder="Enter your income">
+            </div>
+            <button id="calculateTaxButton">Calculate Tax</button>
+            <p id="taxResult"></p>
+        </div>
+        <div id="unitConverter" style="display: none;">
+            <h2>Unit Converter</h2>
+            <div>
+                <label for="conversionCategory">Category:</label>
+                <select id="conversionCategory">
+                    <option value="Length">Length</option>
+                    <option value="Weight">Weight</option>
+                    <option value="Temperature">Temperature</option>
+                </select>
+            </div>
+            <div>
+                <label for="inputValue">Value:</label>
+                <input type="number" id="inputValue" placeholder="Enter value">
+            </div>
+            <div>
+                <label for="fromUnit">From:</label>
+                <select id="fromUnit"></select>
+            </div>
+            <div>
+                <label for="toUnit">To:</label>
+                <select id="toUnit"></select>
+            </div>
+            <button id="convertButton">Convert</button>
+            <p id="conversionResult"></p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

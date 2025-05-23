@@ -1,0 +1,289 @@
+/* Styles for the Calculator Collection */
+
+/* 1. Global & Basic Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+nav button {
+    background: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+nav button:hover {
+    background: #777;
+}
+
+nav button.active {
+    background: #007bff; /* Blue for active tab */
+    font-weight: bold;
+}
+
+main > div { /* Styles for each calculator section */
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+main > div h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input fields and displays */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="text"][readonly] { /* Calculator displays */
+    background-color: #e9e9e9;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: right;
+    color: #333;
+}
+
+/* General button styling (can be overridden by specific calc buttons) */
+button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:active {
+    background-color: #d0d0d0;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* 2. Layout Specifics */
+
+/* Simple and Scientific Calculator Button Grids */
+#simpleCalculator table,
+#scientificCalculator table {
+    width: 100%;
+    border-collapse: collapse; /* For cleaner look */
+}
+
+#simpleCalculator table td,
+#scientificCalculator table td {
+    padding: 2px; /* Small padding around buttons */
+}
+
+.calc-btn, .sci-calc-btn {
+    width: 100%;
+    height: 50px; /* Fixed height for buttons */
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+}
+
+.calc-btn.operator, .sci-calc-btn.operator {
+    background-color: #f0ad4e; /* Orange for operators */
+    color: white;
+}
+.calc-btn.operator:hover, .sci-calc-btn.operator:hover {
+    background-color: #ec971f;
+}
+
+.calc-btn.equals, .sci-calc-btn.equals {
+    background-color: #5cb85c; /* Green for equals */
+    color: white;
+}
+.calc-btn.equals:hover, .sci-calc-btn.equals:hover {
+    background-color: #4cae4c;
+}
+
+#simpleClear, #scientificClear {
+    background-color: #d9534f; /* Red for clear */
+    color: white;
+}
+#simpleClear:hover, #scientificClear:hover {
+    background-color: #c9302c;
+}
+
+.sci-calc-btn.func {
+    background-color: #5bc0de; /* Light blue for functions */
+    color: white;
+}
+.sci-calc-btn.func:hover {
+    background-color: #46b8da;
+}
+
+
+/* Tax and Unit Converter Forms */
+#taxCalculator div,
+#unitConverter div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Stack label and input by default */
+}
+
+#taxCalculator label,
+#unitConverter label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#taxCalculator button,
+#unitConverter button { /* Calculate/Convert buttons */
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+}
+#taxCalculator button:hover,
+#unitConverter button:hover {
+    background-color: #0056b3;
+}
+
+#taxResult, #conversionResult {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    min-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* 3. Responsiveness */
+
+/* Medium screens (tablets) */
+@media (min-width: 600px) {
+    nav {
+        flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+    }
+    nav button {
+        margin: 0 5px; /* Reduce margin for side-by-side */
+    }
+
+    #taxCalculator div,
+    #unitConverter div {
+        flex-direction: row; /* Side-by-side label and input */
+        align-items: center;
+    }
+    #taxCalculator label,
+    #unitConverter label {
+        margin-bottom: 0;
+        margin-right: 10px;
+        flex-basis: 150px; /* Give labels a fixed width */
+        text-align: right;
+    }
+    #taxCalculator input, #taxCalculator select,
+    #unitConverter input, #unitConverter select {
+        flex-grow: 1; /* Allow input to take remaining space */
+    }
+    #taxCalculator button,
+    #unitConverter button {
+        width: auto; /* Auto width for these buttons on larger screens */
+        display: block;
+        margin-left: 160px; /* Align with inputs (label width + margin) */
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 599px) {
+    body {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    nav button {
+        width: calc(50% - 10px); /* Two buttons per row */
+        font-size: 0.9rem;
+    }
+    .calc-btn, .sci-calc-btn {
+        font-size: 1rem; /* Slightly smaller font for calc buttons */
+        height: 45px;
+    }
+    input[type="text"][readonly] { /* Calculator displays */
+        font-size: 1.2rem;
+    }
+
+    /* Ensure form elements in Tax and Unit converter take full width */
+    #taxCalculator input, #taxCalculator select, #taxCalculator button,
+    #unitConverter input, #unitConverter select, #unitConverter button {
+        width: 100%;
+    }
+}
+
+/* Very small screens - adjustments if needed */
+@media (max-width: 360px) {
+    nav button {
+        width: 100%; /* Full width nav buttons */
+        margin: 5px 0;
+    }
+}
+
+/* Ensure calculator tables don't cause overflow */
+#simpleCalculator, #scientificCalculator {
+    overflow-x: auto; /* Add scroll if table is too wide */
+}
+
+/* Specific styling for the calculator containers to manage width */
+#simpleCalculator, #scientificCalculator, #taxCalculator, #unitConverter {
+    max-width: 600px; /* Max width for calculator panels */
+    margin-left: auto;
+    margin-right: auto;
+}
