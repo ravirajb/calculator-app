@@ -24,31 +24,31 @@
             <input type="text" id="simpleDisplay" readonly>
             <table>
                 <tr>
-                    <td><button class="calc-btn number">7</button></td>
-                    <td><button class="calc-btn number">8</button></td>
-                    <td><button class="calc-btn number">9</button></td>
-                    <td><button class="calc-btn operator">/</button></td>
+                    <td><button class="calc-btn number" data-key="7">7</button></td>
+                    <td><button class="calc-btn number" data-key="8">8</button></td>
+                    <td><button class="calc-btn number" data-key="9">9</button></td>
+                    <td><button class="calc-btn operator" data-key="/">/</button></td>
                 </tr>
                 <tr>
-                    <td><button class="calc-btn number">4</button></td>
-                    <td><button class="calc-btn number">5</button></td>
-                    <td><button class="calc-btn number">6</button></td>
-                    <td><button class="calc-btn operator">*</button></td>
+                    <td><button class="calc-btn number" data-key="4">4</button></td>
+                    <td><button class="calc-btn number" data-key="5">5</button></td>
+                    <td><button class="calc-btn number" data-key="6">6</button></td>
+                    <td><button class="calc-btn operator" data-key="*">*</button></td>
                 </tr>
                 <tr>
-                    <td><button class="calc-btn number">1</button></td>
-                    <td><button class="calc-btn number">2</button></td>
-                    <td><button class="calc-btn number">3</button></td>
-                    <td><button class="calc-btn operator">-</button></td>
+                    <td><button class="calc-btn number" data-key="1">1</button></td>
+                    <td><button class="calc-btn number" data-key="2">2</button></td>
+                    <td><button class="calc-btn number" data-key="3">3</button></td>
+                    <td><button class="calc-btn operator" data-key="-">-</button></td>
                 </tr>
                 <tr>
-                    <td><button class="calc-btn number">0</button></td>
-                    <td><button class="calc-btn number">.</button></td>
-                    <td><button id="simpleClear" class="calc-btn">C</button></td>
-                    <td><button class="calc-btn operator">+</button></td>
+                    <td><button class="calc-btn number" data-key="0">0</button></td>
+                    <td><button class="calc-btn number" data-key=".">.</button></td>
+                    <td><button id="simpleClear" class="calc-btn" data-key="Escape">C</button></td>
+                    <td><button class="calc-btn operator" data-key="+">+</button></td>
                 </tr>
                 <tr>
-                    <td colspan="4"><button id="simpleEquals" class="calc-btn equals">=</button></td>
+                    <td colspan="4"><button id="simpleEquals" class="calc-btn equals" data-key="=">=</button></td>
                 </tr>
             </table>
         </div>
@@ -64,36 +64,36 @@
                     <td><button class="sci-calc-btn func" data-func="Math.log(">ln</button></td>
                 </tr>
                 <tr>
-                    <td><button class="sci-calc-btn" data-value="(">(</button></td>
-                    <td><button class="sci-calc-btn" data-value=")">)</button></td>
+                    <td><button class="sci-calc-btn" data-value="(" data-key="(">(</button></td>
+                    <td><button class="sci-calc-btn" data-value=")" data-key=")">)</button></td>
                     <td><button class="sci-calc-btn func" data-func="Math.sqrt(">√</button></td>
-                    <td><button class="sci-calc-btn operator" data-value="**">x<sup>y</sup></button></td>
+                    <td><button class="sci-calc-btn operator" data-value="**" data-key="^">x<sup>y</sup></button></td> 
                     <td><button class="sci-calc-btn factorial" data-value="!">n!</button></td>
                 </tr>
                 <tr>
-                    <td><button class="sci-calc-btn number">7</button></td>
-                    <td><button class="sci-calc-btn number">8</button></td>
-                    <td><button class="sci-calc-btn number">9</button></td>
-                    <td><button class="sci-calc-btn operator" data-value="/">/</button></td>
-                    <td><button id="scientificClear" class="sci-calc-btn">C</button></td>
+                    <td><button class="sci-calc-btn number" data-key="7">7</button></td>
+                    <td><button class="sci-calc-btn number" data-key="8">8</button></td>
+                    <td><button class="sci-calc-btn number" data-key="9">9</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="/" data-key="/">/</button></td>
+                    <td><button id="scientificClear" class="sci-calc-btn" data-key="Escape">C</button></td>
                 </tr>
                 <tr>
-                    <td><button class="sci-calc-btn number">4</button></td>
-                    <td><button class="sci-calc-btn number">5</button></td>
-                    <td><button class="sci-calc-btn number">6</button></td>
-                    <td><button class="sci-calc-btn operator" data-value="*">*</button></td>
-                    <td rowspan="2"><button id="scientificEquals" class="sci-calc-btn equals" style="height:100%;">=</button></td>
+                    <td><button class="sci-calc-btn number" data-key="4">4</button></td>
+                    <td><button class="sci-calc-btn number" data-key="5">5</button></td>
+                    <td><button class="sci-calc-btn number" data-key="6">6</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="*" data-key="*">*</button></td>
+                    <td rowspan="2"><button id="scientificEquals" class="sci-calc-btn equals" data-key="=" style="height:100%;">=</button></td>
                 </tr>
                 <tr>
-                    <td><button class="sci-calc-btn number">1</button></td>
-                    <td><button class="sci-calc-btn number">2</button></td>
-                    <td><button class="sci-calc-btn number">3</button></td>
-                    <td><button class="sci-calc-btn operator" data-value="-">-</button></td>
+                    <td><button class="sci-calc-btn number" data-key="1">1</button></td>
+                    <td><button class="sci-calc-btn number" data-key="2">2</button></td>
+                    <td><button class="sci-calc-btn number" data-key="3">3</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="-" data-key="-">-</button></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button class="sci-calc-btn number" style="width:100%">0</button></td>
-                    <td><button class="sci-calc-btn number">.</button></td>
-                    <td><button class="sci-calc-btn operator" data-value="+">+</button></td>
+                    <td colspan="2"><button class="sci-calc-btn number" data-key="0" style="width:100%">0</button></td>
+                    <td><button class="sci-calc-btn number" data-key=".">.</button></td>
+                    <td><button class="sci-calc-btn operator" data-value="+" data-key="+">+</button></td>
                 </tr>
             </table>
         </div>
